@@ -25,7 +25,7 @@ class Iletisim extends Controller
 
         ]);
 
-        echo "İletişim Formunuz Başarıyla Kaydedilmiştir.";
+        echo "İletişim Formunuz Başarıyla Kaydedilmiştir. ";
 
 
     }
