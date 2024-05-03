@@ -7,6 +7,7 @@ use App\Http\Controllers\Forms;
 use App\Http\Controllers\DbCRUD;
 use App\Http\Controllers\DbModel;
 use App\Http\Controllers\Iletisim;
+use App\Http\Controllers\AddImage;
 
 
 Route::get('/', function () { return view('welcome');});
@@ -34,4 +35,10 @@ Route::get("/modelsil", [DbModel::class,"delete"])->name('model_delete');
 //! İLETİŞİM FORMU
 Route::get("/iletisim_formu", [Iletisim::class,"index"])->name('iletsim_formu');
 Route::post("/gonder", [Iletisim::class,"ekleme"])->name('gonder');
+
+//! UPLOAD FİLE
+Route::get("/upload", function(){
+    return view("upload");
+});
+Route::post("/upload_file", [AddImage::class,"add_iamge"])->name('upload_file');
 
