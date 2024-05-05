@@ -8,9 +8,10 @@ use App\Http\Controllers\DbCRUD;
 use App\Http\Controllers\DbModel;
 use App\Http\Controllers\Iletisim;
 use App\Http\Controllers\AddImage;
+use App\Http\Controllers\Validation;
 
 
-Route::get('/', function () { return view('welcome');});
+Route::get('/', function () { return view('pages.home');})->name('home');
 Route::get('/index', function () { return view('index');});
 
 Route::get("/deneme/{isim}", [Deneme::class,"test"]);
@@ -42,3 +43,14 @@ Route::get("/upload", function(){
 });
 Route::post("/upload_file", [AddImage::class,"add_iamge"])->name('upload_file');
 
+//! UPLOAD FİLE
+Route::post("/member_add", [Validation::class,"member_form"])->name('member_add');
+Route::get("/member_form", function(){
+    return view("validations");
+});
+
+//! MULTİPAGE WEB SİTE
+Route::get("/about", function(){return view("pages.about");})->name('about');
+Route::get("/contact", function(){return view("pages.contact");})->name('contact');
+Route::get("/portfolio", function(){return view("pages.portfolio");})->name('portfolio');
+Route::get("/services", function(){return view("pages.services");})->name('services');
